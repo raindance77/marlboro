@@ -460,6 +460,23 @@ q {
  #image6:checked ~ .mainimage {
  background-image: url('https://i.pinimg.com/736x/5f/0f/67/5f0f67679a5f98e8da63fe90c023a243.jpg');
  }
+
+
+a{
+
+text-decoration:none;
+text-transform:uppercase;
+transition:0.9s;
+color: #D80011;
+ font-weight: 1000;
+color: #337c87;
+cursor: url(http://cur.cursors-4u.net/others/oth-6/oth589.cur), progress !important; 
+transition: 0.9s;}
+
+ /* When the radio button is checked, change the background of .mainimage */
+ #image1:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/64/5f/47/645f479c125912187f6577ffec44461a.jpg');
+ }
 </style>
 </head>
 
@@ -499,7 +516,7 @@ He didn't look up, his attention on the swirling steam rising from his cup, and 
 </div>
 </div>
 
-<div class="title">raindance</div>
+<div class="title"><a>raindance</a></div>
 <divc class="title2"><p> 雨乞いの踊り</p></div>
  
 <div class="stats"><center>Welcome to my ooc profile</center></div>
