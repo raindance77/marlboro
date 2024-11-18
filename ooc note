@@ -1,0 +1,509 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Styled Aesthetic Layout</title>
+ <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+ 
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap);
+ @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Inconsolata|Satisfy|Teko|Roboto+Condensed|Montserrat&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap);
+ 
+::selection {
+background: #000;
+color: #000;
+}
+::-moz-selection {
+background: #000;
+color: #000;
+}
+ 
+a, a:link, a:visited { 
+text-decoration:none;
+text-transform:uppercase;
+transition:0.9s;
+color: #D80011;
+ font-weight: 1000;
+}
+ 
+a:hover{
+color: #337c87;
+cursor: url(http://cur.cursors-4u.net/others/oth-6/oth589.cur), progress !important; 
+transition: 0.9s;
+}
+ 
+::-webkit-scrollbar {
+ height: 0px;
+ width: 0px;
+ background-color: #transparent;
+ border-radius:0px;
+}
+ 
+ body { 
+background: #000; 
+background-image: url(' ');
+background-size: ;
+background-repeat: repeat;
+cursor: url('http://i.imgur.com/2qleX.jpg'), 
+default; overflow:hidden;
+}
+ 
+.texture { 
+background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png"); 
+position: absolute; 
+opacity:0.1; 
+left: 0px; 
+top: 0px; 
+height: 100%; 
+width: 100%; 
+pointer-events: none;
+z-index: 1000;
+}
+ 
+/* this box is to be left alone, it's what makes the hovers work */
+ 
+.mainbox { 
+ background-image: url(' ');
+ background-repeat:no-repeat;
+ background-size: cover;
+ background-position: -0 180px;
+ background-attachment:fixed;
+ background-color: #transparent;
+ position:absolute; 
+ left: 440px; 
+ bottom: 0px;
+ height: 150px;
+ width: 320px;
+ border: 0px Solid #555;
+ border-radius:0px 0px 0px 0px;
+ opacity:1;
+ Z-index:21;
+ transform: rotate(0deg);
+transition:all 0.9s ease-in-out;
+ filter: grayscale(0%) blur(0px);}
+ 
+.mainbox:hover {
+ filter: grayscale(0%) blur(0px);
+}
+ 
+/* this is the box with the border, the #D80011 is the red color, feel free to change that color. make sure #000s stay as the color of your body background */
+ 
+.linetop { 
+ background-image: url(' ');
+ background-repeat: repeat;
+ background-size: fill;
+ background-position: 0px 0px;
+ background-attachment: fixed;
+ background-color: #trans;
+ position: absolute; 
+ left: 0px; 
+ bottom: 130px;
+ height: 50px;
+ width: 320px;
+ border: 1px Solid #555;
+border-image: linear-gradient(-0deg, #555, #000, #000, #000, #555) 1;
+ border-radius: 0px 0px 0px 0px;
+ opacity: 1;
+ Z-index: 21;
+transition:all 0.9s ease-in-out;
+ transform: rotate(0deg);
+}
+ 
+.mainbox:hover .linetop {
+ height: 150px;
+transition:all 0.9s ease-in-out;
+}
+ 
+ 
+.text { 
+ line-height: 13px;
+ letter-spacing: 0px;
+ color: #fff;
+ font-size: 20px;
+ text-decoration: none;
+
+ text-transform: none;
+ font-family:'Bungee Hairline';
+ text-align: justify;
+ background-color: #trans; 
+ border: 0px Solid #ababab;
+ border-radius: 0px 0px 0px 0px;
+ overflow: auto;
+
+ bottom: 131px;
+ height: 10px;
+ width: 310px;
+ opacity: 0;
+ Z-index: 28;
+ position: absolute;
+ padding: 5px;
+ transform: rotate(0deg);
+ overflow: auto;
+transition:all 0.9s ease-in-out;
+ transform: rotate(0deg);
+}
+ 
+.mainbox:hover .text {
+ height: 140px;
+ padding-top: 5px;
+ opacity: 1;
+transition:all 0.9s ease-in-out;
+}
+ 
+.stats { 
+ line-height: 11px;
+ letter-spacing: 0px;
+ color: #fff;
+ font-size: 12px;
+ text-decoration: none;
+ text-transform: none;
+ font-family:'Bungee Hairline';
+ text-align: center;
+ background-color: #trans; 
+ border: 0px Solid #ababab;
+ border-radius: 0px 0px 0px 0px;
+ overflow: auto;
+ left: 420px; 
+ bottom: 80px;
+ height: 40px;
+ width: 310px;
+ opacity: 1;
+ Z-index: 88678678;
+ position: fixed;
+ padding: 5px;
+ transform: rotate(0deg);
+ overflow: auto;
+}
+ 
+ 
+
+/* Overlay fade logic */
+.mainimage::before {
+ content: "";
+ position: absolute;
+ inset: 0; /* Makes it cover the entire .mainimage */
+ background-image: url('https://i.imgur.com/EA2sLPm.png'); /* Your overlay image */
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ z-index: 2;
+ opacity: 1; /* Make the overlay visible initially */
+ transition: opacity 0.9s ease-in-out; /* Smooth transition for opacity */
+ pointer-events: none;
+}
+
+/* Trigger overlay fade on mainimage hover */
+.mainimage:hover::before 
+ {
+ opacity: 0; /* Fade overlay */
+}
+
+/* Trigger overlay fade when .mainbox or .text are hovered */
+.mainbox:hover ~ .mainimage::before,
+.text:hover ~ .mainimage::before {
+ opacity: 0;
+}
+
+/* Ensure that .mainbox hover works on entire box */
+.mainbox:hover .mainimage {
+ opacity: 1; /* Ensure the main image stays visible */
+}
+/* you can change the #D80011 here too to the color you want */
+.title {
+ position: fixed;
+ bottom: 280px;
+ left: 194px;
+ height: 40px;
+ width: 750px; /* Width matches the final width */
+ font-family: 'Bungee Hairline';
+ color: #555;
+ font-size: 60px;
+ line-height: 40px; /* Ensures proper vertical alignment */
+ text-align: center;
+ font-weight: 1000;
+ text-transform: uppercase;
+ letter-spacing: -14px;
+ filter: drop-shadow(1px 1px 5px rgb(120, 255, 0, 0.1));
+ z-index: 1;
+ opacity: 1;
+ transform: rotate(0deg) scale(1, 1.3);
+ pointer-events: none;
+ overflow: hidden; /* Hide any overflowed text */
+ white-space: nowrap; /* Prevent the text from wrapping */
+ text-shadow: 2px 2px 6px rgba(0, 0, 50, 0.8), /* Dark blue shadow */
+ 0px 0px 10px rgba(0, 0, 100, 0.6), /* Light blue glow around */
+ 0px 0px 15px rgba(50, 100, 255, 0.5); /* Soft glow for extra effect */
+}
+.title2 {
+ position: fixed;
+ bottom: 73px;
+ left: 770px;
+ height:300px;
+ width: 350px; /* Width matches the final width */
+  font-family: 'Special Elite', monospace;
+ color: #555;
+ font-size: 30px;
+   text-orientation: upright;
+  writing-mode: vertical-lr;
+ line-height: 40px; /* Ensures proper vertical alignment */
+ text-align: center;
+ font-weight: 1000;
+ text-transform: uppercase;
+ 
+ filter: drop-shadow(1px 1px 1px rgb(120, 255, 0, 0.1));
+ z-index: 144343;
+ opacity: 1;
+ transform: rotate(0deg) scale(1, 1.3);
+ pointer-events: none;
+ white-space: nowrap; /* Prevent the text from wrapping */
+ text-shadow: 2px 2px 6px rgba(0, 0, 50, 0.8), /* Dark blue shadow */
+ 0px 0px 10px rgba(0, 0, 100, 0.6), /* Light blue glow around */
+ 0px 0px 15px rgba(50, 100, 255, 0.5); /* Soft glow for extra effect */
+}
+
+
+.title {
+ position: fixed;
+ bottom: 300px;
+ left: 194px;
+ height: 40px;
+ width: 750px; /* Final width to fit text */
+ font-family: 'Bungee Hairline';
+ color: #555;
+ font-size: 60px;
+ line-height: 40px;
+ text-align: center;
+ font-weight: 1000;
+ text-transform: uppercase;
+ letter-spacing: -14px;
+ filter: drop-shadow(1px 1px 5px rgb(120, 255, 0, 0.1));
+ z-index: 1;
+ opacity: 1;
+ transform: rotate(0deg) scale(1, 1.3);
+ pointer-events: none;
+ overflow: hidden; /* Hide anything outside */
+ white-space: nowrap; /* Prevent wrapping */
+ text-shadow: 2px 2px 6px rgba(0, 0, 50, 0.8), 
+ 0px 0px 10px rgba(0, 0, 100, 0.6), 
+ 0px 0px 15px rgba(50, 100, 255, 0.5); /* Glow effect */
+}
+
+/* Typewriter effect with clip-path */
+@keyframes typewriter {
+ 0% {
+ clip-path: inset(0 100% 0 0); /* Initially hide the text */
+ }
+ 100% {
+ clip-path: inset(0 0 0 0); /* Reveal the text fully */
+ }
+}
+
+/* Apply typewriter effect */
+.title {
+ animation: typewriter2 2s steps(40, end) 1s 1 normal both; /* Typewriter effect with steps */
+}
+
+
+/* Typewriter effect with clip-path */
+@keyframes typewriter2 {
+ 0% {
+ clip-path: inset(0 100% 100% 0); /* Initially hide the text */
+ }
+ 100% {
+ clip-path: inset(0 0 0 0); /* Reveal the text fully */
+ }
+}
+
+/* Apply typewriter effect */
+.title {
+ animation: typewriter 3s steps(40, end) 1s 1 normal both; /* Typewriter effect with steps */
+}
+
+/* Blinking cursor effect */
+@keyframes blink-caret {
+ 0%, 100% {
+ border-color: transparent;
+ }
+ 50% {
+ border-color: white;
+ }
+}
+
+.title {
+ animation: typewriter 3s steps(40, end) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+}
+
+/* Remove blinking cursor when hovering .mainbox or .title */
+.mainbox:hover .title,
+.title:hover {
+ border-right: none; /* Remove blinking cursor */
+}
+
+ 
+
+ 
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-20px);
+		-ms-transform: translateY(-20px);
+		transform: translateY(-20px)
+	}
+	60% {
+		-webkit-transform: translateY(-5px);
+		-ms-transform: translateY(-5px);
+		transform: translateY(-5px)
+	}
+}
+ 
+#noclick { 
+position: absolute; 
+left: 0px; 
+top: 0px; 
+right: 0px; 
+bottom: 0px;
+}
+ 
+/* these are what is making the text smaller */
+ b { 
+ font-size: 10px;
+}
+ 
+ i { 
+ font-size: 10px;
+}
+ 
+ t { 
+ font-size: 11px;
+ font-family: 'inconsolata';
+ color: #ccc;
+}
+
+.mainbox:hover .typewriter {
+ /* Trigger animation on hover */
+ animation: typewriter 3s steps(40, end), blink-caret 0.5s step-end infinite;
+}
+
+ h {
+ display: inline-block;
+ width: 98%;
+ font-family: 'Special Elite', monospace;
+ text-transform: uppercase;
+ text-align: center;
+ font-size: 20px;
+ color: #bbb;
+ border-bottom: 1px solid #fff;
+ margin-bottom: 5px;
+ padding: 2px;
+	 animation: typewriter 3s steps(40, end) 1.5s 1 normal both, blink-caret 0.75s step-end infinite;
+
+ }
+h::after {
+ content: '';
+ display: block;
+ width: 100%;
+ height: 1px;
+ background: white;
+ position: absolute;
+ left: 0;
+ bottom: 0;
+ animation: none;
+}
+q {
+ display: inline-block;
+ width: 98%;
+ font-family: 'Special Elite', monospace;
+ text-transform: uppercase;
+ text-align: center;
+ font-size: 15px;
+ color: #999;
+ margin-bottom: 5px;
+ padding: 2px;
+	 animation: typewriter 3s steps(40, end) 1.5s 1 normal both, blink-caret 0.75s step-end infinite;
+
+ }
+ 
+ p {
+ display: inline-block;
+ width: 98%;
+ font-family: 'Special Elite', monospace;
+ text-transform: uppercase;
+ text-align: center;
+ font-size: 15px;
+ color: #999;
+ margin-bottom: 5px;
+ padding: 2px;
+	 animation: typewriter2 3s steps(40, end) 1.5s 1 normal both, blink-caret 0.75s step-end infinite;
+
+ #image2:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/e0/f3/78/e0f378042937cae8efaad752a6c2f6ce.jpg');
+ }
+
+ #image3:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/a0/4e/51/a04e5130ed08b23b50880bc8d5e20814.jpg');
+ }
+
+ #image4:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/02/5d/52/025d5247fea1be27d1486f7d66e0b7cd.jpg');
+ }
+
+ #image5:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/07/8d/99/078d990cf64c2781e0be618293ef8d45.jpg');
+ }
+
+ #image6:checked ~ .mainimage {
+ background-image: url('https://i.pinimg.com/736x/5f/0f/67/5f0f67679a5f98e8da63fe90c023a243.jpg');
+ }
+</style>
+</head>
+
+<body>
+<div id="NOCLICK" oncontextmenu="if (!window.__cfRLUnblockHandlers) return false; return false;" data-cf-modified-37203762b7bbe19c80f49cf3-="">
+<div class="texture"></div>
+<div class="mainbox">
+<div class="linetop"></div>
+<div class="text"><center> <q>
+Hello, and thank you for visiting my page. I’m Rain, though some might find the name a bit unusual—and I suppose it is. But then again, why not? It’s one of those things that just fits, don’t you think? I’m glad you’ve stopped by, and I sincerely hope that one of my characters has left a lasting impression on you.
+
+A bit about me: I’m 24, and I write primarily in third person, past or present tense. I’m most comfortable with posts ranging from 4-6k characters, though if the muse strikes, I can easily hit 10k or more. I always try to match my partner’s pace, but I’ll admit that when the posts are shorter than a paragraph, I tend to lose my spark. Samples are available upon request, should you want to see my style in action. I'll even leave you a sample of one of my recent characters down below at the end, as a tease.
+
+When it comes to genres, I have a broad range of interests. Romance, slice-of-life, action, adventure, horror, drama, fantasy, supernatural—basically, if it sparks creativity, I’m all in. My stories can go from dark and dramatic to light-hearted and sweet, with a heavy preference for MxM pairings. 
+
+As far as my approach to writing goes, I like to keep things respectful. I believe in the power of good communication. If something isn’t working or you’re not enjoying the direction the story is going, just let me know. We all have the right to step back when needed, and I’d much rather talk things through than have someone disappear without a word. That said, I truly value descriptive, immersive writing. The more we put into a scene, the more it comes alive.
+
+I’m all for collaboration. If you have an idea, share it! There’s nothing more exciting than building something great together. On the flip side, there are a few things I won’t tolerate. Godmodding or powergaming? Absolutely not. I prefer characters to be grounded and realistic in their abilities. Also, please avoid any “taboo” topics, while I'm very flexible in my writing, I'm not keen on writing texts that serve as inspiration for a cannibal corpse song. Do you catch my drift? I love rich, detailed posts, and I'll try to match my partner, but one-liners don’t quite do it for me. If you reach out, please have at least some character details ready, bare profiles are difficult to work with, and I like to dive into the depth of a character from the get-go.
+
+In terms of availability, I try to post a few times a day when life allows, though it can get hectic from time to time. My DMs are open for roleplay inquiries, and I keep OOC chatter to a minimum unless we’ve really clicked. At the end of the day we're just here to have fun, and writing is one of my ways. I’m here to create something worth sharing with you. Let’s build a story together.
+
+
+Thank you for reading so far! If you're interested in a sample, I'll provide it just down below, it is about the character Jin 'Marlboro' Seitaro, who happens to be tailed by a unknown rider, after a specific job. Who's the rider? Who knows. Maybe it'll be your character! </q>
+
+<br><br><i>
+The moment the bike slotted behind him, Jin knew. It wasn't instinct; it was the logic of the lanes. The rider had options at the light, straight, left, even overtaking, but they'd chosen none of those. Instead, the bike slipped into Jin's lane and stayed there, following, not so casual. No, that definitely wasn't casual. His expression didn't shift, not even a flicker. Jin's hands rested easy on the wheel, his movements smooth as he guided the car forward. He let the realization settle in, taking his time, like a man lighting the first cigarette of the night. He didn't need to check his mirrors; the steady hum of the bike's engine in the rain confirmed what his gut already told him.
+Still, he wasn't in any hurry. This wasn't his first time being followed. Might not even be his tenth. The hiss of rain on the windshield mixed with the quiet crackle of the police scanner wired discreetly beneath the dash. He tuned into it without really thinking, picking up the stati, laden chatter. Routine calls mostly, disturbances, a minor hit-and-run, nothing out of the ordinary. But he listened anyway, filtering out the streets that were better left alone tonight. No reason to make this a hassle. A calm exhale. Jin reached for his cigarette, fingers brushing the soft paper before he pulled it to his lips. The car interior briefly glowed orange as he lit it, the flame steady despite the wet weather outside. He took a long drag, the taste familiar, grounding. Smoke curled from his mouth, dissipating lazily into the car's dim light.
+The rider behind him wasn't in a hurry either. Good. Jin liked to play these things slow. He guided the car down a narrow street, tight corners, slick with rain, not the kind of route anyone would pick unless they knew it well. The silver Honda moved like water through the veins of the city, smooth and deliberate, testing the tail. The bike followed, its engine maintaining the same measured hum. No hesitation. A low hum escaped Jin's throat, half a chuckle, half a sigh. He snubbed the cigarette in the ashtray with a casual flick, the faint hiss of dying embers lost in the quiet rhythm of the police scanner.
+The radio crackled again. "...disturbance near 18th and Mayfield... units en route." Jin made a mental note, avoiding the intersection as he eased back onto the main road. When the road stretched out again, he gunned the engine slightly, letting the turbo sing, pulling ahead just enough to tease. Not enough to lose the tail, no, he wanted the bastard to keep following. Not like he could shake a motorcycle on a straight anyway. The bike stayed in his shadow. So they wanted to dance. Fine. Jin would lead. The neon haze of a late-night food tent caught his eye as he passed, its colors bleeding into the rain-slick pavement. Jin noted it without turning his head, laughter, smoke, the faint clatter of dishes.
+A good spot for later, maybe. For now, he kept going, taking a roundabout up ahead for a U-turn. His tires whispered against the wet pavement, the sound swallowed by the rain. The bike stayed with him. Of course, it did. Jin pulled onto the same curb he'd clocked earlier, the car easing to a stop beneath the glow of neon lights. The scanner droned softly in the background, ignored now. He killed the engine, letting the silence settle like a blanket over the noise of the city. The rain outside was a steady patter, soft but insistent.
+Stepping out, Jin adjusted his jacket collar, the movement unhurried. He felt the rider's presence like a weight in the air, just outside his peripheral vision. It didn't matter. He'd already decided how this was going to go. The tent was alive with activity, smoke rising from the grills, the chatter of the late, night crowd blending with the sizzle of cooking meat. Jin walked through it like a man walking into his own living room, familiar and unbothered. He tapped the counter with two fingers, voice calm and low. "Two coffees. Black."
+The vendor handed over the cups without comment, and Jin carried them to a pair of stools beneath the awning. He set one down carefully, steam rising in delicate spirals. The other cup he held for a moment longer, the warmth radiating through the ceramic into his hand. Sliding onto one stool, Jin placed the second cup on the stool beside him, angling it just so. He lit another cigarette, the flame briefly catching in his eyes as he leaned back, exhaling smoke into the damp night. The rider was there, most likely. Jin didn't need to look to know. The weight of their attention was enough, heavy but not oppressive. He took a slow sip of coffee, the bitterness cutting through the smoke on his tongue. "Busy night," he murmured, his voice low but carrying, though not directed to anyone it seemed, as the words floated on the rain, casual and pointed at once.
+He didn't look up, his attention on the swirling steam rising from his cup, and the untouched cup sitting next to him, still waiting. "Cold night for a ride," Jin said, his tone smooth, almost inviting. Finally, he shifted his attention to the man, eyeing him as he nudged the untouched cup forward with two fingers, steam curling lazily between them. "Go on, have some coffee. It'll take the edge off the chill." </i>
+
+
+
+</div>
+</div>
+
+<div class="title">raindance</div>
+<divc class="title2"><p> 雨乞いの踊り</p></div>
+ 
+<div class="stats"><center>Welcome to my ooc profile</center></div>
+ 
+</body>
+
+</html>
